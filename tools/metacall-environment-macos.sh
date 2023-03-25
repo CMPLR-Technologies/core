@@ -76,7 +76,7 @@ sub_nodejs(){
 
 sub_ruby(){
 	echo "configuring ruby"
-	brew install brew install ruby-install openssl readline libyaml zlib bison bison@2.7
+	brew install ruby-install openssl readline libyaml zlib bison bison@2.7
 	# ensure build is using bison
 	export PATH="$(brew --prefix bison@2.7)/bin:$PATH"
 
