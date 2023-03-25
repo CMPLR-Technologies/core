@@ -77,8 +77,14 @@ sub_nodejs(){
 sub_ruby(){
 	echo "configuring ruby"
 	brew install ruby@3.1 
-	export CFLAGS="-Wno-compound-token-split-by-macro"
 	export CPPFLAGS="-Wno-compound-token-split-by-macro"
+	export LDFLAGS="-L/usr/local/opt/ruby@3.1/lib"
+  	export CPPFLAGS="-I/usr/local/opt/ruby@3.1/include"
+}
+
+sub_java(){
+	echo "configuring java"
+	brew install openjdk@19
 }
 
 sub_install()
@@ -91,6 +97,9 @@ sub_install()
 	fi
 	if [ $INSTALL_RUBY = 1 ]; then
 		sub_ruby
+	fi
+	if [ $INSTALL_JAVA = 1 ]; then
+		sub_java
 	fi
 }
 
