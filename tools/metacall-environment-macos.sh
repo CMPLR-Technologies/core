@@ -86,6 +86,8 @@ sub_install()
 	fi
 	if [ $INSTALL_NODEJS = 1 ]; then
 		sub_nodejs
+	if [ $INSTALL_RUBY = 1 ]; then
+		sub_ruby
 	fi
 }
 
