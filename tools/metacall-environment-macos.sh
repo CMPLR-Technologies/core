@@ -76,10 +76,9 @@ sub_nodejs(){
 
 sub_ruby(){
 	echo "configuring ruby"
-	brew install ruby@3.1 openssl@1.1 readline libyaml zlib
-	export CFLAGS="-Wno-error=implicit-function-declaration"
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml) --with-zlib-dir=$(brew --prefix zlib)"
-
+	brew install ruby@3.1 
+	export CFLAGS="-Wno-compound-token-split-by-macro"
+	export CPPFLAGS="-Wno-compound-token-split-by-macro"
 }
 
 sub_install()
