@@ -77,7 +77,6 @@ sub_nodejs(){
 sub_ruby(){
 	echo "configuring ruby"
 	brew install ruby@3.1 
-	export CPPFLAGS="-Wno-compound-token-split-by-macro"
 	export LDFLAGS="-L/usr/local/opt/ruby@3.1/lib"
   	export CPPFLAGS="-I/usr/local/opt/ruby@3.1/include"
 }
