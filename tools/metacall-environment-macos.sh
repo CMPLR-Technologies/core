@@ -67,9 +67,17 @@ sub_python() {
 # NodeJS
 sub_nodejs(){
 	echo "configuring nodejs"
-	brew install node make npm curl python3
+	export HOMEBREW_NO_AUTO_UPDATE=1
+	brew unlink node@18
+	brew link node@16
+	echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> /Users/runner/.bash_profile
+	brew install make curl 
 }
 
+sub_ruby(){
+	echo "configuring ruby"
+	brew install ruby@3.1
+}
 
 sub_install()
 {
