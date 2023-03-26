@@ -76,16 +76,9 @@ sub_nodejs(){
 
 sub_ruby(){
 	echo "configuring ruby"
-	brew install ruby-install openssl readline libyaml zlib bison bison@2.7
-	# ensure build is using bison
-	export PATH="$(brew --prefix bison@2.7)/bin:$PATH"
+	brew install rbenv ruby-build readline
+	RUBY_CFLAGS="-Wno-error=implicit-function-declaration" RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install --verbose 3.1.0
 
-	# set ruby compilation flags
-	export CFLAGS="-Wno-error=implicit-function-declaration"
-	export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml) --with-zlib-dir=$(brew --prefix zlib)"
-
-	# install ruby via ruby-install
-	ruby-install ruby 3.1.0
 }
 
 sub_java(){
