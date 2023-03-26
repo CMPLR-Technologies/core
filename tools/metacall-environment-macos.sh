@@ -78,6 +78,11 @@ sub_ruby(){
 	echo "configuring ruby"
 	brew install rbenv ruby-build readline
 	RUBY_CFLAGS="-Wno-error=implicit-function-declaration" RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install --verbose 3.1.0
+	rbenv global 3.1.0
+	rbenv rehash
+	echo -e '\nif command -v rbenv 1>/dev/null 2>&1; then\n  eval "$(rbenv init -)"\nfi' >> ~/.bash_profile
+	source ~/.bash_profile
+	
 
 }
 
