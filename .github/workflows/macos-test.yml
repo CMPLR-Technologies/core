@@ -38,7 +38,10 @@ jobs:
       - name: Uninstall Ruby
         run: |
           brew uninstall --force ruby
-          brew cleanup
+          brew autoremove
+          RUBY_FRAMEWORK_DIR=$(xcrun --sdk macosx --show-sdk-path)/System/Library/Frameworks/Ruby.framework
+          sudo rm -rf $RUBY_FRAMEWORK_DIR
+
 
 
       - name: Setup tmate session
