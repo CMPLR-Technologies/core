@@ -77,6 +77,9 @@ sub_nodejs(){
 sub_ruby(){
 	echo "configuring ruby"
 	brew install ruby@3.2
+	echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> /Users/runner/.bash_profile
+	export LDFLAGS="-L/usr/local/opt/ruby/lib"
+    export CPPFLAGS="-I/usr/local/opt/ruby/include"
 	# RUBY_CFLAGS="-Wno-error=implicit-function-declaration" RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install --verbose 3.1.0
 	# rbenv global 3.1.0
 	# rbenv rehash
