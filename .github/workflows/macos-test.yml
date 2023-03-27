@@ -37,7 +37,7 @@ jobs:
 
       - name: Uninstall Ruby
         run: |
-          brew uninstall ruby
+          brew uninstall --force ruby
           brew cleanup
       
         # TODO: This must go in metacall-environment-macos.sh as base dependencies
