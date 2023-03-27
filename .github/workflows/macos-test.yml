@@ -44,6 +44,7 @@ jobs:
           sudo rm -rf /usr/local/bin/ruby
           sudo rm -rf /usr/bin/ruby
           sudo rm -rf /System/Library/Frameworks/Ruby.framework
+          sudo rm -rf /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/Ruby.framework/
       
 
         # TODO: This must go in metacall-environment-macos.sh as base dependencies
