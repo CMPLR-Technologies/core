@@ -61,16 +61,16 @@ jobs:
         # TODO: Remove the disable option for fork safe once funchook problem is solved
         run: |
           cmake -DOPTION_FORK_SAFE=OFF \
-             -DPython_INCLUDE_DIRS="$HOME/.pyenv/versions/3.11.1/include/python3.11" \
-             -DPython_LIBRARY="$HOME/.pyenv/versions/3.11.1/lib/libpython3.11.dylib" \
-             -DPython_EXECUTABLE="$HOME/.pyenv/versions/3.11.1/bin/python3.11" \
-             -DPython_ROOT="$HOME/.pyenv/versions/3.11.1" \
-             -DPython_VERSION="3.11.1"  \
-              -DRUBY_INCLUDE_DIRS="$HOME/.rbenv/versions/3.1.0/include/ruby-3.0.0" \
-              -DRUBY_LIBRARY="$HOME/.rbenv/versions/3.1.0/lib/libruby.3.1.0.dylib" \
-              -DRUBY_EXECUTABLE="$HOME/.rbenv/versions3.1.0/bin/ruby" \
-              -DRUBY_ROOT="$HOME/.rbenv/versions/3.1.0" \
-              -DRUBY_VERSION="3.1.0"  ..
+            -DPython_INCLUDE_DIRS="$HOME/.pyenv/versions/3.11.1/include/python3.11" \
+            -DPython_LIBRARY="$HOME/.pyenv/versions/3.11.1/lib/libpython3.11.dylib" \
+            -DPython_EXECUTABLE="$HOME/.pyenv/versions/3.11.1/bin/python3.11" \
+            -DPython_ROOT="$HOME/.pyenv/versions/3.11.1" \
+            -DPython_VERSION="3.11.1"  \
+            -DRuby_INCLUDE_DIRS="$HOME/.rbenv/versions/3.1.0/include/ruby-3.1.0" \
+            -DRuby_LIBRARY="$HOME/.rbenv/versions/3.1.0/lib/libruby.3.1.dylib" \
+            -DRuby_EXECUTABLE="$HOME/.rbenv/versions/3.1.0/bin/ruby" \
+            -DRuby_ROOT="$HOME/.rbenv/versions/3.1.0" \
+            -DRuby_VERSION="3.1.0"  ..
           bash ../tools/metacall-build.sh $METACALL_BUILD_OPTIONS
         env:
           METACALL_BUILD_OPTIONS: ${{ matrix.buildtype }} tests
