@@ -34,6 +34,11 @@ jobs:
         run: |
           npm uninstall npm -g
           rm -rf /usr/local/lib/node_modules/npm
+        
+      - name: Uninstall Ruby 
+        run: |
+          brew uninstall --force ruby
+          brew autoremove
 
         # TODO: This must go in metacall-environment-macos.sh as base dependencies
       - name: Configure Clang
@@ -65,12 +70,7 @@ jobs:
             -DPython_LIBRARY="$HOME/.pyenv/versions/3.11.1/lib/libpython3.11.dylib" \
             -DPython_EXECUTABLE="$HOME/.pyenv/versions/3.11.1/bin/python3.11" \
             -DPython_ROOT="$HOME/.pyenv/versions/3.11.1" \
-            -DPython_VERSION="3.11.1"  \
-            -DRuby_INCLUDE_DIRS="$HOME/.rbenv/versions/3.1.0/include/ruby-3.1.0" \
-            -DRuby_LIBRARY="$HOME/.rbenv/versions/3.1.0/lib/libruby.3.1.dylib" \
-            -DRuby_EXECUTABLE="$HOME/.rbenv/versions/3.1.0/bin/ruby" \
-            -DRuby_ROOT="$HOME/.rbenv/versions/3.1.0" \
-            -DRuby_VERSION="3.1.0"  ..
+            -DPython_VERSION="3.11.1" ..
           bash ../tools/metacall-build.sh $METACALL_BUILD_OPTIONS
         env:
           METACALL_BUILD_OPTIONS: ${{ matrix.buildtype }} tests
