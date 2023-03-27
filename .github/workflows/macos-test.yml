@@ -37,11 +37,11 @@ jobs:
 
       - name: Uninstall Ruby
         run: |
-          brew uninstall --force ruby
-          brew autoremove
           sudo rm -rf /Library/Ruby
           sudo rm -rf /usr/local/lib/ruby
           sudo rm -rf /usr/local/bin/ruby
+          sudo rm -rf /usr/bin/ruby
+          sudo rm -rf /System/Library/Frameworks/Ruby.framework
           sudo rm -rf /Applications/Xcode_14.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/Ruby.framework/
       
 
