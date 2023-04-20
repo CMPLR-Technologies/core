@@ -73,7 +73,11 @@ jobs:
             -DPython_EXECUTABLE="$HOME/.pyenv/versions/3.11.1/bin/python3.11" \
             -DPython_ROOT="$HOME/.pyenv/versions/3.11.1" \
             -DPython_VERSION="3.11.1" \
-            -DRuby_LIBRARY="/usr/local/Cellar/ruby/3.2.1/lib/libruby.3.2.dylib" ..
+            -DRuby_INCLUDE_DIRS="/usr/local/Cellar/ruby/3.2.2/include/ruby-3.2.0" \
+            -DRuby_LIBRARY="/usr/local/Cellar/ruby/3.2.2/lib/libruby.3.2.dylib" \
+            -DRuby_EXECUTABLE="/usr/local/Cellar/ruby/3.2.2/bin/ruby" \
+            -DRuby_ROOT="/usr/local/Cellar/ruby/3.2.2" \
+            -DRuby_VERSION="3.2.2" ..
           bash ../tools/metacall-build.sh $METACALL_BUILD_OPTIONS
         env:
           METACALL_BUILD_OPTIONS: ${{ matrix.buildtype }} tests
