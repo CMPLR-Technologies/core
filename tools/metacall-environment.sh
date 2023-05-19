@@ -484,7 +484,7 @@ sub_nodejs(){
 			$SUDO_CMD apk del .build-nodejs-python-deps
 		fi
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew install node@14.8.2 make npm curl 
+		brew install node@14 make npm curl 
 	fi
 }
 
