@@ -491,10 +491,11 @@ sub_nodejs(){
 		mkdir -p build
 		CMAKE_CONFIG_PATH="$ROOT_DIR/build/CMakeConfig.txt"
 		NODE_PREFIX="$(brew --prefix node@16)"
-		NODE_VERSION="v16.20.0"
+		NODE_VERSION="$(node --version | cut -c 2-)"
 		echo "-DNodeJS_VERSION=$NODE_VERSION" >> $CMAKE_CONFIG_PATH
 		echo "-DNodeJS_INCLUDE_DIR=$NODE_PREFIX/include/node" >> $CMAKE_CONFIG_PATH
 		echo "-DNodeJS_EXECUTABLE=$NODE_PREFIX/bin/node" >> $CMAKE_CONFIG_PATH
+
 	fi
 }
 
