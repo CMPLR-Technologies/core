@@ -484,18 +484,11 @@ sub_nodejs(){
 			$SUDO_CMD apk del .build-nodejs-python-deps
 		fi
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew install node@16 make npm curl python3
+		export HOMEBREW_NO_AUTO_UPDATE=1
+		brew install node@16 make curl 
 		# Make node 16 the default
-		echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> /Users/runner/.bash_profile
 		brew link node@16 --force --overwrite
-		mkdir -p build
-		CMAKE_CONFIG_PATH="$ROOT_DIR/build/CMakeConfig.txt"
-		NODE_PREFIX="$(brew --prefix node@16)"
-		NODE_VERSION="$(node --version | cut -c 2-)"
-		echo "-DNodeJS_VERSION=$NODE_VERSION" >> $CMAKE_CONFIG_PATH
-		echo "-DNodeJS_INCLUDE_DIR=$NODE_PREFIX/include/node" >> $CMAKE_CONFIG_PATH
-		echo "-DNodeJS_EXECUTABLE=$NODE_PREFIX/bin/node" >> $CMAKE_CONFIG_PATH
-
+		echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> /Users/runner/.bash_profile
 	fi
 }
 
