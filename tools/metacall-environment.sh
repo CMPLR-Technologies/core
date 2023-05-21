@@ -493,7 +493,7 @@ sub_nodejs(){
 		NODE_PREFIX="$(brew --prefix node@16)"
 		NODE_VERSION="$(node --version)"
 		echo "-DNodeJS_VERSION=$NODE_VERSION" >> $CMAKE_CONFIG_PATH
-		echo "-DNodeJS_INCLUDE_DIRS=$NODE_PREFIX/include/node" >> $CMAKE_CONFIG_PATH
+		echo "-DNodeJS_INCLUDE_DIR=$NODE_PREFIX/include/node" >> $CMAKE_CONFIG_PATH
 		echo "-DNodeJS_EXECUTABLE=$NODE_PREFIX/bin/node" >> $CMAKE_CONFIG_PATH
 
 	fi
