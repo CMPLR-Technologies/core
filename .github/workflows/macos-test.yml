@@ -35,6 +35,7 @@ jobs:
           npm uninstall npm -g
           rm -rf /usr/local/lib/node_modules/npm
 
+
       - name: Uninstall Ruby
         run: |
           brew uninstall --force ruby
@@ -47,6 +48,9 @@ jobs:
         env:
           METACALL_INSTALL_OPTIONS: base python nodejs java ruby #netcore5 typescript file rpc wasm c cobol rust rapidjson funchook swig pack # clangformat v8rep51 coverage
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        
       - name: Configure
         run: |
           cd build
