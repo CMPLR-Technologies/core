@@ -42,7 +42,7 @@ endif()
 option(NodeJS_CMAKE_DEBUG "Print paths for debugging NodeJS dependencies." OFF)
 option(NodeJS_SHARED_UV "If it is enabled, libuv won't be required by this script." OFF)
 option(NodeJS_BUILD_FROM_SOURCE "If it is enabled, NodeJS runtime library will be built from source." OFF)
-option(NodeJS_BUILD_WITHOUT_ICU "If it is enabled, NodeJS runtime library will be built without internationalization support." ON)
+option(NodeJS_BUILD_WITHOUT_ICU "If it is enabled, NodeJS runtime library will be built without internationalization support." OFF)
 
 # Include package manager
 include(FindPackageHandleStandardArgs)
