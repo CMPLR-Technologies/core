@@ -489,10 +489,6 @@ sub_nodejs(){
 		# Make node 16 the default
 		brew link node@16 --force --overwrite
 		sudo xcode-select --switch /Library/Developer/CommandLineTools
-		export SDKROOT=$(xcrun --show-sdk-path)
-		export MACOSX_DEPLOYMENT_TARGET=''
-		export CC=$(xcrun --find clang)
-		export CXX=$(xcrun --find clang++)
 
 	fi
 }
