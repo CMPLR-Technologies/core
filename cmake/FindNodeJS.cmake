@@ -549,11 +549,10 @@ if(NOT NodeJS_LIBRARY)
 			ProcessorCount(N)
 
 			if(NOT N EQUAL 0)
+				execute_process(COMMAND sh -c "ls")
 				execute_process(COMMAND sh -c "make -j${N} -C out BUILDTYPE=${CMAKE_BUILD_TYPE} V=1" WORKING_DIRECTORY "${NodeJS_OUTPUT_PATH}")
-				message(STATUS "Build NodeJS shared library with ${N} threads")
 			else()
 				execute_process(COMMAND sh -c "make -C out BUILDTYPE=${CMAKE_BUILD_TYPE} V=1" WORKING_DIRECTORY "${NodeJS_OUTPUT_PATH}")
-				message(STATUS "Build NodeJS shared library with default threads")
 			endif()
 
 			message(STATUS "Install NodeJS shared library")
