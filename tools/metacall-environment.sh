@@ -488,7 +488,10 @@ sub_nodejs(){
 		brew install node@16 make curl 
 		# Make node 16 the default
 		brew link node@16 --force --overwrite
-		echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> /Users/runner/.bash_profile
+		export SDKROOT=$(xcrun --show-sdk-path)
+		export MACOSX_DEPLOYMENT_TARGET=''
+		export CC=$(xcrun --find clang)
+		export CXX=$(xcrun --find clang++)
 	fi
 }
 
