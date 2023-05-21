@@ -393,7 +393,7 @@ if(NOT NodeJS_LIBRARY)
 	message(STATUS "NodeJS library not found, trying to build it from source")
 
 	# NodeJS download and output path (workaround to compile node as a shared library)
-	set(NodeJS_DOWNLOAD_URL "https://nodejs.org/dist/v14.21.3/node-v14.21.3.tar.gz")
+	set(NodeJS_DOWNLOAD_URL "https://nodejs.org/dist/v${NodeJS_VERSION}/node-v${NodeJS_VERSION}.tar.gz")
 	set(NodeJS_BASE_PATH "${CMAKE_CURRENT_BINARY_DIR}/sources")
 	set(NodeJS_DOWNLOAD_FILE "${NodeJS_BASE_PATH}/node-v${NodeJS_VERSION}.tar.gz")
 	set(NodeJS_OUTPUT_PATH "${NodeJS_BASE_PATH}/node-v${NodeJS_VERSION}")
