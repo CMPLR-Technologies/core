@@ -42,7 +42,7 @@ endif()
 option(NodeJS_CMAKE_DEBUG "Print paths for debugging NodeJS dependencies." OFF)
 option(NodeJS_SHARED_UV "If it is enabled, libuv won't be required by this script." OFF)
 option(NodeJS_BUILD_FROM_SOURCE "If it is enabled, NodeJS runtime library will be built from source." OFF)
-option(NodeJS_BUILD_WITHOUT_ICU "If it is enabled, NodeJS runtime library will be built without internationalization support." OFF)
+option(NodeJS_BUILD_WITHOUT_ICU "If it is enabled, NodeJS runtime library will be built without internationalization support." ON)
 
 # Include package manager
 include(FindPackageHandleStandardArgs)
@@ -549,7 +549,6 @@ if(NOT NodeJS_LIBRARY)
 			ProcessorCount(N)
 
 			if(NOT N EQUAL 0)
-				execute_process(COMMAND sh -c "ls")
 				execute_process(COMMAND sh -c "make -j${N} -C out BUILDTYPE=${CMAKE_BUILD_TYPE} V=1" WORKING_DIRECTORY "${NodeJS_OUTPUT_PATH}")
 			else()
 				execute_process(COMMAND sh -c "make -C out BUILDTYPE=${CMAKE_BUILD_TYPE} V=1" WORKING_DIRECTORY "${NodeJS_OUTPUT_PATH}")
