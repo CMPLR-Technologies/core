@@ -484,7 +484,7 @@ sub_nodejs(){
 			$SUDO_CMD apk del .build-nodejs-python-deps
 		fi
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew install node@16 make npm curl 
+		brew install node@16 make npm curl python3
 		# Make node 16 the default
 		echo 'export PATH="/usr/local/opt/node@16/bin:$PATH"' >> /Users/runner/.bash_profile
 		brew link node@16 --force --overwrite
