@@ -48,12 +48,14 @@ jobs:
         env:
           METACALL_INSTALL_OPTIONS: base python nodejs java ruby #netcore5 typescript file rpc wasm c cobol rust rapidjson funchook swig pack # clangformat v8rep51 coverage
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        
       - name: Configure
         run: |
           cd build
+          sudo xcode-select --switch /Library/Developer/CommandLineTools
+          export SDKROOT=$(xcrun --show-sdk-path)
+          export MACOSX_DEPLOYMENT_TARGET=''
+          export CC=$(xcrun --find clang)
+          export CXX=$(xcrun --find clang++)
           bash ../tools/metacall-configure.sh $METACALL_CONFIGURE_OPTIONS
         env:
           METACALL_CONFIGURE_OPTIONS: ${{ matrix.buildtype }} scripts ports tests sanitizer python java ruby nodejs #python java sanitizer netcore5 typescript file rpc wasm java c cobol rust examples dynamic install pack benchmarks # v8 coverage
