@@ -58,7 +58,7 @@ jobs:
           export CXX=$(xcrun --find clang++)
           bash ../tools/metacall-configure.sh $METACALL_CONFIGURE_OPTIONS
         env:
-          METACALL_CONFIGURE_OPTIONS: ${{ matrix.buildtype }} scripts ports tests sanitizer python java ruby nodejs #python java sanitizer netcore5 typescript file rpc wasm java c cobol rust examples dynamic install pack benchmarks # v8 coverage
+          METACALL_CONFIGURE_OPTIONS: ${{ matrix.buildtype }} scripts ports tests python java ruby nodejs #python java sanitizer netcore5 typescript file rpc wasm java c cobol rust examples dynamic install pack benchmarks # v8 coverage
 
       - name: Build
         working-directory: ./build
