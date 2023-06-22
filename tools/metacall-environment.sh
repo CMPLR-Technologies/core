@@ -134,7 +134,7 @@ sub_swig(){
 		rm -rf swig-4.0.1
 
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew install swig
+		brew install swig@4.1
 	fi
 }
 
