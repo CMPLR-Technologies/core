@@ -358,6 +358,8 @@ sub_netcore7(){
 		elif [ "${LINUX_DISTRO}" = "alpine" ]; then
 			$SUDO_CMD apk add --no-cache dotnet7-sdk
 		fi
+	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
+		brew install dotnet-sdk
 	fi
 }
 
