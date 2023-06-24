@@ -359,7 +359,7 @@ sub_netcore7(){
 			$SUDO_CMD apk add --no-cache dotnet7-sdk
 		fi
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew reinstall dotnet-sdk
+		brew install dotnet-sdk
 	fi
 }
 

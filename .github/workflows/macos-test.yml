@@ -52,6 +52,12 @@ jobs:
           sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
           sudo rm -rf /Library/PreferencePanes/JavaControlPanel.prefPane
           unset JAVA_HOME
+
+      - name: Unistall Dotnet
+        run: |
+          sudo rm -rf /usr/local/bin/dotnet
+          sudo rm -rf /usr/local/share/dotnet
+          sudo rm -rf /etc/paths.d/dotnet
           
       - name: Set up the environment
         run: sh ./tools/metacall-environment.sh $METACALL_INSTALL_OPTIONS
