@@ -705,6 +705,9 @@ sub_rust(){
 			$SUDO_CMD apk add --no-cache curl musl-dev linux-headers libgcc
 		fi
 		curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly-2021-12-04 --profile default
+	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
+		brew install rustup-init
+		rustup-init -y --default-toolchain nightly-2021-12-04 --profile default
 	fi
 }
 
