@@ -706,8 +706,7 @@ sub_rust(){
 		fi
 		curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly-2021-12-04 --profile default
 	elif [ "${OPERATIVE_SYSTEM}" = "Darwin" ]; then
-		brew install rustup-init
-		rustup-init -y --default-toolchain nightly-2021-12-04 --profile default
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain nightly-2021-12-04 --profile default
 	fi
 }
 
