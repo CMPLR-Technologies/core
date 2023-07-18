@@ -23,8 +23,8 @@ set(target rs_port)
 # Exit here if required dependencies are not met
 message(STATUS "Port ${target}")
 
-# Find bindgen (disable when using sanitizers)
-if(NOT (OPTION_BUILD_ADDRESS_SANITIZER OR OPTION_BUILD_THREAD_SANITIZER OR OPTION_BUILD_MEMORY_SANITIZER))
+# Find bindgen (disable when using sanitizers or clang (as a workaround for stdlib.h issue))
+if(NOT (OPTION_BUILD_ADDRESS_SANITIZER OR OPTION_BUILD_THREAD_SANITIZER OR OPTION_BUILD_MEMORY_SANITIZER OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang"))
 	find_program(Rust_BINDGEN_EXECUTABLE bindgen
 		HINTS ${Rust_CARGO_HOME}
 		PATH_SUFFIXES "bin"
